@@ -1,0 +1,975 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Écho des Vagues | Excursions au départ de Propriano vers Scandola et Bonifacio</title>
+    <meta name="description" content="Embarquez pour l'odyssée : Découvrez la Réserve de Scandola (UNESCO), les Calanques de Piana et les falaises de Bonifacio. Observation de la faune marine." />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Cormorant+Garamond:wght@600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* --- Charte Graphique Méditerranée/Nature --- */
+        :root {
+            --text: #023e8a; /* Bleu marine profond */
+            --muted: #6c757d;
+            --bg: #f9fbfd; /* Blanc cassé, léger */
+            --primary: #0077b6; /* Bleu Azur Principal */
+            --primary-dark: #005f99;
+            --accent: #48cae4; /* Turquoise Émeraude (Nature/Contraste) */
+            --surface: #ffffff;
+            --border: #e0f2f1;
+            --dark-surface: #023e8a;
+            --dark-text: #fff;
+            --success: #2a9d8f;
+            --warning: #ff9f1c;
+        }
+        html { scroll-behavior: smooth; }
+        * { box-sizing: border-box; }
+        body { 
+            font-family: 'Roboto', sans-serif; 
+            font-size: 1.15rem; 
+            line-height: 1.7; 
+            color: var(--text); 
+            background: var(--bg); 
+            margin: 0; 
+            overflow-x: hidden;
+        }
+        img { max-width: 100%; height: auto; border-radius: 12px; transition: transform 0.3s ease; }
+        img:hover { transform: scale(1.03); }
+        a { color: var(--primary-dark); text-decoration: none; transition: all 0.2s; }
+        a:focus, a:hover { text-decoration: underline; color: var(--accent); }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 1.5rem; }
+        .section { padding: 5rem 0; }
+        .surface, .card { background: var(--surface); border: 1px solid var(--border); border-radius: 16px; box-shadow: 0 10px 30px rgba(0, 50, 80, 0.08); transition: box-shadow 0.3s, transform 0.3s; }
+        .card:hover { box-shadow: 0 15px 45px rgba(0, 50, 80, 0.12); transform: translateY(-5px); }
+
+        /* --- TITRES --- */
+        h1, h2, h3 { font-family: 'Cormorant Garamond', serif; }
+        h1 { font-weight: 700; }
+        h2 { font-size: 3rem; margin: 0 0 1rem; text-align: center; color: var(--primary-dark); font-weight: 600; }
+        h3 { font-size: 1.8rem; margin: 0 0 0.5rem; font-family: 'Cormorant Garamond', serif; font-weight: 700; }
+        .sublegend { color: var(--muted); font-size: 1.1rem; }
+
+        /* --- HEADER & NAV --- */
+        .topbar { 
+            position: fixed; 
+            top: 0; 
+            left: 0; 
+            right: 0;
+            z-index: 1000; 
+            background: rgba(2, 62, 138, 0.95); 
+            color: var(--dark-text); 
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1); 
+            transition: all 0.3s;
+        }
+        .topbar.scrolled {
+            background: var(--dark-surface);
+            padding-top: 0;
+            padding-bottom: 0;
+        }
+        .nav { 
+            display: flex; 
+            align-items: center; 
+            justify-content: space-between; 
+            gap: 1rem; 
+            padding: 0.8rem 0; 
+            font-size: 1rem; 
+        }
+        .brand { 
+            display: flex; 
+            align-items: center; 
+            gap: 10px; 
+            font-weight: 700; 
+            font-size: 1.5rem; 
+            color: var(--dark-text); 
+        }
+        .brand svg { width: 36px; height: 36px; }
+        .lang-switcher a { color: var(--dark-text); padding: 0 0.5rem; opacity: 0.7; }
+        .lang-switcher .active { opacity: 1; font-weight: 700; color: var(--accent); text-decoration: none; }
+        .menu { display: flex; gap: 1.5rem; align-items: center; }
+        .menu a { color: var(--dark-text); opacity: 0.9; padding: 0.5rem; font-weight: 500; }
+        .menu a:hover { opacity: 1; text-decoration: none; color: var(--accent); }
+        .mobile-toggle { display: none; font-size: 1.5rem; cursor: pointer; }
+        
+        /* --- HERO --- */
+        .hero {
+            position: relative;
+            background: linear-gradient(rgba(0,30,80,0.5), rgba(0,119,182,0.5)), url('https://images.unsplash.com/photo-1516496636080-14fb876e029d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80') center center/cover no-repeat fixed;
+            color: var(--dark-text);
+            text-align: center;
+            padding: 12rem 0 6rem;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            overflow: hidden;
+        }
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 100px;
+            background: linear-gradient(to top, var(--bg), transparent);
+            z-index: 1;
+        }
+        .hero .container { position: relative; z-index: 2; }
+        .hero h1 { 
+            font-size: 4.5rem; 
+            margin: 0 0 1rem; 
+            line-height: 1.1; 
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.7); 
+        }
+        .hero .sub { 
+            font-size: 1.8rem; 
+            font-weight: 400; 
+            margin-bottom: 3rem; 
+            text-shadow: 1px 1px 4px rgba(0,0,0,0.5); 
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .cta { 
+            display: inline-flex; 
+            align-items: center; 
+            gap: 0.5rem; 
+            background: var(--accent); 
+            color: var(--dark-surface); 
+            padding: 1.2rem 2.5rem; 
+            border-radius: 50px; 
+            font-weight: 700; 
+            font-size: 1.2rem; 
+            text-transform: uppercase;
+            box-shadow: 0 8px 20px rgba(0, 180, 219, 0.5);
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+        .cta:hover { 
+            background: #00b4d8; 
+            text-decoration: none; 
+            transform: translateY(-3px); 
+            box-shadow: 0 12px 25px rgba(0, 180, 219, 0.6);
+        }
+        .cta-secondary {
+            background: transparent;
+            border: 2px solid var(--accent);
+            color: var(--accent);
+        }
+        .cta-secondary:hover {
+            background: rgba(72, 202, 228, 0.1);
+        }
+
+        /* --- TRUST BADGES --- */
+        .trust-badges {
+            background: var(--surface);
+            padding: 2rem 0;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            position: relative;
+            z-index: 10;
+        }
+        .badge-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+            text-align: center;
+        }
+        .badge-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .badge-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--bg);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            color: var(--primary);
+            margin-bottom: 0.5rem;
+        }
+
+        /* --- REVIEWS --- */
+        .reviews { background: var(--border); padding: 4rem 0; }
+        .review-grid { 
+            display: grid; 
+            grid-template-columns: repeat(3, 1fr); 
+            gap: 2rem; 
+            text-align: center; 
+            color: var(--text); 
+        }
+        .review-item { 
+            padding: 2rem; 
+            background: var(--surface); 
+            border-radius: 16px; 
+            box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+            transition: transform 0.3s;
+        }
+        .review-item:hover {
+            transform: translateY(-5px);
+        }
+        .stars { color: #ffc300; font-size: 1.5rem; margin-bottom: 1rem; }
+        .review-item p { margin: 0.5rem 0; font-style: italic; font-size: 1.1rem; line-height: 1.6; }
+        .review-item .small { font-style: normal; font-weight: 600; color: var(--primary); margin-top: 1rem; }
+
+        /* --- EXCURSIONS --- */
+        .grid { display: grid; gap: 2.5rem; }
+        .grid-3 { grid-template-columns: repeat(3, 1fr); }
+        .trip-card { 
+            position: relative; 
+            overflow: hidden; 
+            color: var(--dark-text); 
+            background-size: cover; 
+            background-position: center; 
+            min-height: 400px; 
+            display: flex; 
+            align-items: flex-end; 
+            padding: 2rem; 
+            border-radius: 16px; 
+        }
+        .trip-card:before { 
+            content: ''; 
+            position: absolute; 
+            top: 0; 
+            left: 0; 
+            right: 0; 
+            bottom: 0; 
+            background: linear-gradient(180deg, rgba(0,0,0,0.1) 0%, rgba(0,30,80,0.85) 100%); 
+            z-index: 1; 
+            transition: opacity 0.5s;
+        }
+        .trip-card:hover:before {
+            opacity: 0.9;
+        }
+        .trip-card-content { z-index: 2; width: 100%; }
+        .trip-card h3 { font-size: 2rem; margin: 0 0 0.5rem; font-family: 'Cormorant Garamond', serif; }
+        .tag { 
+            position: absolute; 
+            top: 1rem; 
+            right: 1rem; 
+            background: var(--warning); 
+            color: #fff; 
+            padding: 0.5rem 1.5rem; 
+            font-weight: 700; 
+            font-size: 0.9rem; 
+            z-index: 3; 
+            border-radius: 50px; 
+            box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+        }
+        .card-footer { 
+            display: flex; 
+            align-items: center; 
+            justify-content: space-between;
+            gap: 0.5rem; 
+            font-size: 1rem; 
+            margin-top: 1rem;
+            padding-top: 1rem;
+            border-top: 1px solid rgba(255,255,255,0.2);
+        }
+        .price { font-size: 1.5rem; font-weight: 700; color: var(--accent); }
+        .card-footer svg { width: 18px; height: 18px; fill: var(--accent); }
+
+        /* --- FEATURES --- */
+        .features {
+            background: linear-gradient(135deg, #f9fbfd 0%, #e6f7ff 100%);
+        }
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        .feature-item {
+            text-align: center;
+            padding: 1.5rem;
+        }
+        .feature-icon {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+
+        /* --- FORMULAIRE --- */
+        .form-section { 
+            background: linear-gradient(135deg, var(--bg) 0%, #e6f7ff 100%);
+            padding: 5rem 0 6rem; 
+        }
+        form { 
+            display: grid; 
+            grid-template-columns: repeat(2, 1fr); 
+            gap: 1.5rem; 
+            max-width: 900px; 
+            margin: 0 auto; 
+            padding: 3rem; 
+            background: var(--surface); 
+            border: 2px solid var(--primary); 
+            border-radius: 20px; 
+            box-shadow: 0 15px 40px rgba(0, 119, 182, 0.1);
+        }
+        .full { grid-column: 1 / -1; }
+        label { 
+            display: block; 
+            margin-bottom: 0.5rem; 
+            font-weight: 600; 
+            color: var(--primary-dark); 
+        }
+        input, select, textarea { 
+            font: inherit; 
+            padding: 1rem 1.2rem; 
+            border: 1px solid var(--border); 
+            border-radius: 8px; 
+            background: #f8fcfd; 
+            width: 100%; 
+            box-sizing: border-box; 
+            color: var(--text); 
+            transition: all 0.2s;
+        }
+        input:focus, select:focus, textarea:focus { 
+            outline: none; 
+            border-color: var(--accent); 
+            box-shadow: 0 0 0 3px rgba(72, 202, 228, 0.2); 
+        }
+        .form-actions { 
+            display: flex; 
+            justify-content: center; 
+            margin-top: 1rem; 
+        }
+        .form-actions button { 
+            background: var(--primary); 
+            color: #fff; 
+            border: none;
+            padding: 1.2rem 3rem;
+            font-size: 1.2rem;
+        }
+        .form-actions button:hover { background: var(--primary-dark); }
+        .form-note {
+            text-align: center;
+            margin-top: 2rem;
+            color: var(--muted);
+            font-size: 0.95rem;
+            padding: 1rem;
+            background: rgba(2, 62, 138, 0.05);
+            border-radius: 8px;
+        }
+
+        /* --- MAP --- */
+        .map-section { background: var(--surface); }
+        .map { border: 0; width: 100%; height: 500px; border-radius: 16px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
+
+        /* --- GALLERY --- */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+        .gallery-grid figure {
+            margin: 0;
+            overflow: hidden;
+            border-radius: 12px;
+            height: 250px;
+        }
+        .gallery-grid img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+        .gallery-grid img:hover {
+            transform: scale(1.1);
+        }
+        .gallery-grid figcaption {
+            padding: 0.8rem;
+            text-align: center;
+            background: var(--surface);
+            border-top: 1px solid var(--border);
+        }
+
+        /* --- FOOTER --- */
+        footer { margin-top: 0; background: var(--dark-surface); color: #e0f2f1; }
+        .footer-grid { 
+            display: grid; 
+            grid-template-columns: 1.5fr 1fr 1fr 1fr; 
+            gap: 3rem; 
+            padding: 4rem 0; 
+        }
+        footer h3 { 
+            color: var(--accent); 
+            margin-top: 0; 
+            font-family: 'Cormorant Garamond', serif; 
+            font-size: 1.8rem; 
+            margin-bottom: 1.5rem; 
+        }
+        footer a { color: var(--accent); }
+        footer .small { color: #b3e5fc; line-height: 1.8; }
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: rgba(72, 202, 228, 0.1);
+            border-radius: 50%;
+            color: var(--accent);
+            font-size: 1.2rem;
+            transition: all 0.3s;
+        }
+        .social-links a:hover {
+            background: var(--accent);
+            color: var(--dark-surface);
+            transform: translateY(-3px);
+        }
+        .copyright {
+            text-align: center;
+            padding: 2rem 0;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            color: #b3e5fc;
+            font-size: 0.9rem;
+        }
+
+        /* --- MEDIA QUERIES --- */
+        @media (max-width: 1024px) {
+            .hero h1 { font-size: 3.5rem; }
+            .hero .sub { font-size: 1.5rem; }
+            .grid-3, .review-grid, .badge-grid, .feature-grid { grid-template-columns: repeat(2, 1fr); }
+            .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+            .footer-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+        
+        @media (max-width: 768px) {
+            .mobile-toggle { display: block; }
+            .menu { 
+                display: none; 
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: var(--dark-surface);
+                flex-direction: column;
+                padding: 1.5rem;
+                box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+            }
+            .menu.active { display: flex; }
+            .hero { padding: 10rem 0 4rem; min-height: 90vh; }
+            .hero h1 { font-size: 2.8rem; }
+            h2 { font-size: 2.5rem; }
+            .grid-3, .review-grid, .badge-grid, .feature-grid, .footer-grid { grid-template-columns: 1fr; }
+            .gallery-grid { grid-template-columns: 1fr; }
+            form { grid-template-columns: 1fr; padding: 2rem; }
+            .section { padding: 3rem 0; }
+        }
+        
+        @media (max-width: 480px) {
+            .hero h1 { font-size: 2.2rem; }
+            .hero .sub { font-size: 1.2rem; }
+            .cta { padding: 1rem 2rem; font-size: 1rem; }
+            h2 { font-size: 2rem; }
+        }
+
+        /* --- ANIMATIONS --- */
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .fade-in-up {
+            animation: fadeInUp 0.8s ease-out forwards;
+        }
+        
+        /* --- SCROLL TO TOP --- */
+        .scroll-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background: var(--primary);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            cursor: pointer;
+            z-index: 999;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+        .scroll-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+        .scroll-top:hover {
+            background: var(--primary-dark);
+            transform: translateY(-5px);
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="topbar" id="topbar">
+        <div class="container nav" role="navigation" aria-label="Navigation principale">
+            <div class="brand" aria-label="Excursions en Mer Propriano">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 2L2 22H22L12 2Z" fill="#00b4d8"/><path d="M12 2L17 12H7L12 2Z" fill="#fff"/></svg>
+                <span>Écho des Vagues</span>
+            </div>
+            
+            <div class="mobile-toggle" id="mobileToggle">
+                <i class="fas fa-bars"></i>
+            </div>
+            
+            <nav class="menu" id="mainMenu" aria-label="Liens rapides">
+                <a href="#accueil">Accueil</a>
+                <a href="#excursions">Escapades</a>
+                <a href="#pourquoi-nous">Pourquoi nous</a>
+                <a href="#galerie">Galerie</a>
+                <a href="#reservation">S'embarquer</a>
+                <a href="mailto:contact@excursions-propriano.com" class="cta" style="background:var(--primary); color:#fff; padding:0.5rem 1.2rem; border-radius:8px; font-size:1rem; box-shadow:none;">Contact</a>
+            </nav>
+            
+            <div class="lang-switcher">
+                <a href="index.html" class="active" aria-current="page">FR</a>
+                | <a href="index-en.html" title="English version">EN</a>
+                | <a href="index-it.html" title="Versione italiana">IT</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="accueil">
+        <div class="container fade-in-up">
+            <h1>Excursions au départ de Propriano vers Scandola et Bonifacio</h1>
+            <p class="sub">Embarquez pour une odyssée où le bleu azur rencontre la roche rouge et le calcaire immaculé. Découvrez des paysages classés UNESCO, des réserves naturelles et une faune marine exceptionnelle.</p>
+            <div style="display: flex; gap: 1.5rem; justify-content: center; flex-wrap: wrap;">
+                <a href="#reservation" class="cta" aria-label="Réserver votre excursion en mer">
+                    <i class="fas fa-ship"></i> Réserver maintenant
+                </a>
+                <a href="#excursions" class="cta cta-secondary" aria-label="Découvrir nos excursions">
+                    <i class="fas fa-binoculars"></i> Nos escapades
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trust Badges -->
+    <section class="trust-badges">
+        <div class="container badge-grid">
+            <div class="badge-item">
+                <div class="badge-icon">
+                    <i class="fas fa-shield-alt"></i>
+                </div>
+                <h4 style="margin: 0; font-size: 1.1rem;">Sécurité maximale</h4>
+                <p class="small" style="margin: 0;">Équipement dernier cri</p>
+            </div>
+            <div class="badge-item">
+                <div class="badge-icon">
+                    <i class="fas fa-user-friends"></i>
+                </div>
+                <h4 style="margin: 0; font-size: 1.1rem;">Petits groupes</h4>
+                <p class="small" style="margin: 0;">12 personnes max</p>
+            </div>
+            <div class="badge-item">
+                <div class="badge-icon">
+                    <i class="fas fa-leaf"></i>
+                </div>
+                <h4 style="margin: 0; font-size: 1.1rem;">Éco-responsable</h4>
+                <p class="small" style="margin: 0;">Respect de l'environnement</p>
+            </div>
+            <div class="badge-item">
+                <div class="badge-icon">
+                    <i class="fas fa-clock"></i>
+                </div>
+                <h4 style="margin: 0; font-size: 1.1rem;">Flexibilité</h4>
+                <p class="small" style="margin: 0;">Annulation jusqu'à J-7</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Reviews -->
+    <section class="reviews">
+        <div class="container">
+            <h2>Ce que disent nos voyageurs</h2>
+            <p class="sublegend" style="text-align: center; margin-bottom: 3rem;">Des expériences inoubliables partagées par nos passagers</p>
+            <div class="review-grid">
+                <div class="review-item">
+                    <div class="stars">★★★★★</div>
+                    <p>"Une expérience incroyable, les calanques sont à couper le souffle. Le capitaine connaît parfaitement les spots et nous a fait découvrir des grottes secrètes."</p>
+                    <p class="small">Sophie L. • Juillet 2024</p>
+                </div>
+                <div class="review-item">
+                    <div class="stars">★★★★★</div>
+                    <p>"Le meilleur moment de nos vacances ! L'équipe est top, très professionnelle et attentionnée. Nous avons même vu des dauphins !"</p>
+                    <p class="small">Patrick A. • Août 2024</p>
+                </div>
+                <div class="review-item">
+                    <div class="stars">★★★★★</div>
+                    <p>"Simplement inoubliable. Service impeccable et paysage magique. La visite de Bonifacio depuis la mer est une perspective unique que je recommande à tous."</p>
+                    <p class="small">Émilie M. • Septembre 2024</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features -->
+    <section class="section features" id="pourquoi-nous">
+        <div class="container">
+            <h2>Pourquoi choisir Écho des Vagues ?</h2>
+            <p class="sublegend" style="text-align: center;">Une expérience maritime unique, conçue pour les amoureux de la nature et de l'authenticité</p>
+            <div class="feature-grid">
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <i class="fas fa-map-marked-alt"></i>
+                    </div>
+                    <h3>Itinéraires exclusifs</h3>
+                    <p>Accès à des criques et grottes secrètes hors des sentiers battus, grâce à notre connaissance locale approfondie.</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <i class="fas fa-water"></i>
+                    </div>
+                    <h3>Navigation respectueuse</h3>
+                    <p>Nous respectons scrupuleusement les zones protégées et limitons notre impact environnemental.</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <i class="fas fa-user-tie"></i>
+                    </div>
+                    <h3>Guides passionnés</h3>
+                    <p>Nos capitaines sont des marins expérimentés qui partagent avec passion leur amour de la Corse.</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <i class="fas fa-concierge-bell"></i>
+                    </div>
+                    <h3>Confort optimal</h3>
+                    <p>Bateaux modernes et confortables, équipés de toutes les commodités pour votre sécurité et bien-être.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Excursions -->
+    <section class="section" id="excursions">
+        <div class="container">
+            <h2>L'Appel du Large : Itinéraires Poétiques</h2>
+            <p class="sublegend" style="text-align: center;">Chaque vague est une promesse de découverte entre ciel et mer.</p>
+            <div class="grid grid-3">
+                
+                <div class="trip-card card" style="background-image: url('https://images.unsplash.com/photo-1566073771259-6a8506099945?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80');">
+                    <div class="tag">TOP VENTE | Le Sanctuaire</div>
+                    <div class="trip-card-content">
+                        <h3>L'Émerveillement de Scandola & Piana</h3>
+                        <p class="small">
+                            Laissez-vous charmer par la **Réserve Naturelle de Scandola (UNESCO)**. Naviguez au pied des falaises de **roches rouges volcaniques** des Calanques de Piana, où le temps semble suspendu. C'est le refuge des **faucons pèlerins** et d'une flore endémique rare. Possibilité de croiser des **dauphins** dans ces eaux pures. (Journée complète)
+                        </p>
+                        <div class="card-footer">
+                            <div style="display: flex; align-items: center; gap: 0.5rem;">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+                                <span>Boissons incluses • Déjeuner optionnel</span>
+                            </div>
+                            <div class="price">95€ / pers.</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="trip-card card" style="background-image: url('https://images.unsplash.com/photo-1591702168945-3d2f395ee8d5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80');">
+                    <div class="tag">Coup de cœur</div>
+                    <div class="trip-card-content">
+                        <h3>Le Rêve de Calcaire de Bonifacio</h3>
+                        <p class="small">
+                            Cap vers l'extrême sud, où les **falaises de craie blanche** de Bonifacio s'élèvent, sculptées par les légendes et le vent. Nous explorons les grottes marines secrètes et les **îles Lavezzi**, véritable aquarium naturel aux eaux turquoises. Ces criques sont une merveille pour l'observation des **posidonies** et l'évasion. (Journée complète)
+                        </p>
+                        <div class="card-footer">
+                            <div style="display: flex; align-items: center; gap: 0.5rem;">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+                                <span>Escales baignade • Snorkeling</span>
+                            </div>
+                            <div class="price">85€ / pers.</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="trip-card card" style="background-image: url('https://images.unsplash.com/photo-1505142468610-359e7d316be0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1768&q=80');">
+                    <div class="tag">Exclusivité</div>
+                    <div class="trip-card-content">
+                        <h3>Coucher de Soleil & Dauphins</h3>
+                        <p class="small">
+                            En fin de journée, partez à la rencontre des **dauphins** dans leur habitat naturel. Cette excursion intimiste vous offre un moment magique où la mer se pare des couleurs du couchant. Un apéritif corse vous est offert à bord tandis que le soleil plonge dans la Méditerranée. (3 heures)
+                        </p>
+                        <div class="card-footer">
+                            <div style="display: flex; align-items: center; gap: 0.5rem;">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+                                <span>Apéritif corse inclus</span>
+                            </div>
+                            <div class="price">65€ / pers.</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <p class="small" style="text-align: center; margin-top: 3rem; color: var(--text); font-weight: 600;">
+                Capacité max: 12 personnes • Départ: Port de Propriano. Réservez tôt pour garantir votre place !
+            </p>
+            <div style="text-align: center; margin-top: 2rem;">
+                <a href="#reservation" class="cta" style="display: inline-flex; align-items: center; gap: 0.5rem;">
+                    <i class="fas fa-calendar-check"></i> Vérifier les disponibilités
+                </a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Gallery -->
+    <section id="galerie" class="section">
+        <div class="container">
+            <h2>Galerie Photos</h2>
+            <p class="sublegend" style="text-align: center;">Quelques aperçus de nos plus belles excursions.</p>
+            <div class="gallery-grid">
+                <figure class="surface card">
+                    <img src="https://images.unsplash.com/photo-1566073771259-6a8506099945?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Scandola au lever du soleil" />
+                    <figcaption class="small">Scandola au lever du soleil</figcaption>
+                </figure>
+                <figure class="surface card">
+                    <img src="https://images.unsplash.com/photo-1591702168945-3d2f395ee8d5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w-800&q=80" alt="Entrée de grotte à Bonifacio" />
+                    <figcaption class="small">Entrée de grotte à Bonifacio</figcaption>
+                </figure>
+                <figure class="surface card">
+                    <img src="https://images.unsplash.com/photo-1505142468610-359e7d316be0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Dauphins sautant au crépuscule" />
+                    <figcaption class="small">La danse magique des dauphins</figcaption>
+                </figure>
+                <figure class="surface card">
+                    <img src="https://images.unsplash.com/photo-1516496636080-14fb876e029d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Bateau naviguant vers les calanques" />
+                    <figcaption class="small">Navigation vers les calanques</figcaption>
+                </figure>
+            </div>
+        </div>
+    </section>
+
+    <!-- Reservation Form -->
+    <section class="form-section" id="reservation">
+        <div class="container">
+            <h2>Réserver votre aventure en mer</h2>
+            <p class="sublegend" style="text-align: center; margin-bottom: 3rem;">Remplissez cette demande de disponibilité, nous vous confirmons sous 24h.</p>
+            <form aria-label="Formulaire de réservation">
+                <div>
+                    <label for="name">Nom complet *</label>
+                    <input id="name" name="name" type="text" placeholder="Votre nom" required />
+                </div>
+                <div>
+                    <label for="email">Email *</label>
+                    <input id="email" name="email" type="email" placeholder="vous@example.com" required />
+                </div>
+                <div>
+                    <label for="phone">Téléphone (Recommandé)</label>
+                    <input id="phone" name="phone" type="tel" inputmode="tel" placeholder="06 00 00 00 00" />
+                </div>
+                <div>
+                    <label for="trip">Excursion *</label>
+                    <select id="trip" name="trip" required>
+                        <option value="">Choisir…</option>
+                        <option>Scandola & Piana — Journée complète</option>
+                        <option>Bonifacio & Îles Lavezzi — Journée complète</option>
+                        <option>Coucher de soleil & Observation des dauphins</option>
+                        <option>Privatisation (groupe jusqu'à 12 personnes)</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="date">Date souhaitée *</label>
+                    <input id="date" name="date" type="date" required />
+                </div>
+                <div>
+                    <label for="people">Nombre de personnes *</label>
+                    <input id="people" name="people" type="number" min="1" max="12" value="2" required />
+                </div>
+                <div class="full">
+                    <label for="message">Message (optionnel)</label>
+                    <textarea id="message" name="message" rows="4" placeholder="Précisions utiles (allergies, enfants, horaires)…"></textarea>
+                </div>
+                <div class="form-actions full">
+                    <button type="submit" class="cta" style="font-family:'Roboto', sans-serif;" aria-label="Envoyer la demande de réservation">
+                        <i class="fas fa-paper-plane"></i> Envoyer la demande
+                    </button>
+                </div>
+            </form>
+            <p class="form-note">
+                <i class="fas fa-info-circle"></i> Politique d'annulation flexible (annulation gratuite jusqu'à 7 jours avant, report possible en cas de mauvais temps). Paiement sécurisé après confirmation de la date.
+            </p>
+        </div>
+    </section>
+
+    <!-- Map -->
+    <section id="propriano-map" class="section map-section">
+        <div class="container">
+            <h2>Point de Départ — Port de Propriano</h2>
+            <p class="sublegend" style="text-align: center; margin-bottom: 2rem;">Notre ponton est facilement accessible au port de plaisance de Propriano. Trouvez l'itinéraire !</p>
+            <div class="card" style="padding: 0; overflow: hidden;">
+                <iframe class="map" title="Carte Google — Port de Propriano" loading="lazy"
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d24982.97385357931!2d8.886!3d41.676!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x13d71c6b8b3e3f4f%3A0x4078821166a5d70!2sPropriano!5e0!3m2!1sfr!2sfr!4v1733300000" 
+                    aria-label="Carte du Port de Propriano">
+                </iframe>
+            </div>
+            <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; margin-top: 2rem;">
+                <div class="surface card" style="padding: 1.5rem; text-align: center;">
+                    <div style="font-size: 2rem; color: var(--primary); margin-bottom: 0.5rem;">
+                        <i class="fas fa-ship"></i>
+                    </div>
+                    <h3 style="font-size: 1.3rem; margin-bottom: 0.5rem;">Embarquement</h3>
+                    <p class="small">Ponton n°12, Port de Propriano. Présentez-vous 15 minutes avant le départ.</p>
+                </div>
+                <div class="surface card" style="padding: 1.5rem; text-align: center;">
+                    <div style="font-size: 2rem; color: var(--primary); margin-bottom: 0.5rem;">
+                        <i class="fas fa-parking"></i>
+                    </div>
+                    <h3 style="font-size: 1.3rem; margin-bottom: 0.5rem;">Parking</h3>
+                    <p class="small">Parking gratuit à 300m du port. Espace réservé pour nos clients.</p>
+                </div>
+                <div class="surface card" style="padding: 1.5rem; text-align: center;">
+                    <div style="font-size: 2rem; color: var(--primary); margin-bottom: 0.5rem;">
+                        <i class="fas fa-sun"></i>
+                    </div>
+                    <h3 style="font-size: 1.3rem; margin-bottom: 0.5rem;">Conseils</h3>
+                    <p class="small">Crème solaire, chapeau, maillot de bain et serviette recommandés.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container footer-grid">
+            <div>
+                <h3>Écho des Vagues</h3>
+                <p class="small">L'évasion commence ici. Découvrez Scandola et Bonifacio en petits groupes, avec passion et respect de l'environnement. Notre équipe de marins passionnés vous guide vers les plus beaux joyaux de la Corse.</p>
+                <div class="social-links">
+                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+                    <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+            <div>
+                <h3>Contact & Infos</h3>
+                <p class="small">
+                    <i class="fas fa-phone-alt"></i> <a href="tel:+336355552610">06 35 55 52 610</a><br/>
+                    <i class="fas fa-envelope"></i> <a href="mailto:contact@excursions-propriano.com">contact@excursions-propriano.com</a><br/>
+                    <i class="fas fa-map-marker-alt"></i> Port de Propriano, Corse-du-Sud<br/>
+                    <i class="fas fa-clock"></i> Ouvert d'avril à octobre
+                </p>
+            </div>
+            <div>
+                <h3>Excursions</h3>
+                <p class="small">
+                    <a href="#excursions">Scandola & Piana</a><br/>
+                    <a href="#excursions">Bonifacio & Lavezzi</a><br/>
+                    <a href="#excursions">Coucher de soleil & Dauphins</a><br/>
+                    <a href="#excursions">Privatisations</a>
+                </p>
+            </div>
+            <div>
+                <h3>Informations</h3>
+                <p class="small">
+                    <a href="#">FAQ</a><br/>
+                    <a href="#">Conditions générales</a><br/>
+                    <a href="#">Politique de confidentialité</a><br/>
+                    <a href="#">Mentions légales</a>
+                </p>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>© 2025 Écho des Vagues — Excursions en Mer Propriano — Tous droits réservés | Site créé avec passion en Corse</p>
+        </div>
+    </footer>
+
+    <!-- Scroll to top button -->
+    <div class="scroll-top" id="scrollTop" aria-label="Retour en haut">
+        <i class="fas fa-chevron-up"></i>
+    </div>
+
+    <script>
+        // Mobile menu toggle
+        const mobileToggle = document.getElementById('mobileToggle');
+        const mainMenu = document.getElementById('mainMenu');
+        
+        mobileToggle.addEventListener('click', () => {
+            mainMenu.classList.toggle('active');
+            mobileToggle.innerHTML = mainMenu.classList.contains('active') 
+                ? '<i class="fas fa-times"></i>' 
+                : '<i class="fas fa-bars"></i>';
+        });
+        
+        // Close mobile menu when clicking a link
+        document.querySelectorAll('.menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                mainMenu.classList.remove('active');
+                mobileToggle.innerHTML = '<i class="fas fa-bars"></i>';
+            });
+        });
+        
+        // Sticky header on scroll
+        const topbar = document.getElementById('topbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 100) {
+                topbar.classList.add('scrolled');
+            } else {
+                topbar.classList.remove('scrolled');
+            }
+        });
+        
+        // Scroll to top button
+        const scrollTop = document.getElementById('scrollTop');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                scrollTop.classList.add('visible');
+            } else {
+                scrollTop.classList.remove('visible');
+            }
+        });
+        
+        scrollTop.addEventListener('click', () => {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+        
+        // Form submission
+        const form = document.querySelector('form');
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            alert('Merci pour votre demande ! Nous vous contacterons dans les plus brefs délais pour confirmer votre réservation.');
+            form.reset();
+        });
+        
+        // Set minimum date to today for date input
+        const dateInput = document.getElementById('date');
+        const today = new Date().toISOString().split('T')[0];
+        dateInput.min = today;
+        
+        // Simple animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('fade-in-up');
+                }
+            });
+        }, observerOptions);
+        
+        // Observe elements to animate
+        document.querySelectorAll('.section').forEach(section => {
+            observer.observe(section);
+        });
+    </script>
+</body>
+</html>

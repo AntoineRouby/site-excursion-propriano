@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Echo of the Waves | Excursions from Propriano to Scandola and Bonifacio</title>
+    <meta name="description" content="Embark on an odyssey: Discover the Scandola Reserve (UNESCO), the Calanques de Piana, and the cliffs of Bonifacio. Marine wildlife observation." />
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Cormorant+Garamond:wght@600;700&display=swap" rel="stylesheet">
+    <style>
+        /* --- New Mediterranean/Nature Graphic Charter (CSS remains identical for consistency) --- */
+        :root {
+            --text: #023e8a; /* Deep Navy Blue */
+            --muted: #6c757d;
+            --bg: #f9fbfd; /* Light off-white */
+            --primary: #0077b6; /* Main Azure Blue */
+            --primary-dark: #005f99;
+            --accent: #48cae4; /* Emerald Turquoise (Nature/Contrast) */
+            --surface: #ffffff;
+            --border: #e0f2f1; /* Very light, natural border */
+            --dark-surface: #023e8a;
+            --dark-text: #fff;
+        }
+        html { scroll-behavior: smooth; }
+        body { 
+            font-family: 'Roboto', sans-serif; 
+            font-size: 1.15rem; 
+            line-height: 1.7; 
+            color: var(--text); 
+            background: var(--bg); 
+            margin: 0; 
+        }
+        img { max-width: 100%; height: auto; border-radius: 12px; transition: transform 0.3s ease; }
+        img:hover { transform: scale(1.02); }
+        a { color: var(--primary-dark); text-decoration: none; transition: color 0.2s; }
+        a:focus, a:hover { text-decoration: underline; color: var(--accent); }
+        .container { max-width: 1120px; margin: 0 auto; padding: 0 1.5rem; }
+        .section { padding: 5rem 0; }
+        .surface, .card { background: var(--surface); border: 1px solid var(--border); border-radius: 16px; box-shadow: 0 10px 30px rgba(0, 50, 80, 0.08); transition: box-shadow 0.3s; }
+        .card:hover { box-shadow: 0 15px 45px rgba(0, 50, 80, 0.12); }
+
+        /* --- HEADINGS: NEW POETIC FONT --- */
+        h1, h2, h3 { font-family: 'Cormorant Garamond', serif; }
+        h1 { font-weight: 700; }
+        h2 { font-size: 3rem; margin: 0 0 1rem; text-align: center; color: var(--primary-dark); font-weight: 600; }
+        h3 { font-size: 1.8rem; margin: 0 0 0.5rem; font-family: 'Cormorant Garamond', serif; font-weight: 700; }
+        .sublegend { color: var(--muted); font-size: 1.1rem; }
+
+        /* --- HEADER & NAV --- */
+        .topbar { position: sticky; top: 0; z-index: 20; background: var(--dark-surface); color: var(--dark-text); box-shadow: 0 2px 10px rgba(0,0,0,0.2); }
+        .nav { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: 0.8rem 0; font-size: 1rem; }
+        .brand { font-weight: 700; font-size: 1.5rem; color: var(--dark-text); }
+        .lang-switcher a { color: var(--dark-text); padding: 0 0.5rem; opacity: 0.7; }
+        .lang-switcher .active { opacity: 1; font-weight: 700; color: var(--accent); text-decoration: none; }
+        .menu { display: flex; gap: 1.5rem; }
+        .menu a { color: var(--dark-text); opacity: 0.8; padding: 0.5rem; }
+        .menu a:hover { opacity: 1; text-decoration: none; }
+        
+        /* --- HERO --- */
+        .hero {
+            position: relative;
+            background: linear-gradient(rgba(0,30,80,0.4), rgba(0,119,182,0.4)), url('hero-scandola.jpg') center center/cover no-repeat;
+            color: var(--dark-text);
+            text-align: center;
+            padding: 10rem 0 5rem;
+            min-height: 600px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        .hero h1 { 
+            font-size: 4rem; 
+            margin: 0 0 0.5rem; 
+            line-height: 1.1; 
+            text-shadow: 2px 2px 5px rgba(0,0,0,0.5); 
+        }
+        .hero .sub { font-size: 1.5rem; font-weight: 400; margin-bottom: 2.5rem; text-shadow: 1px 1px 3px rgba(0,0,0,0.5); }
+        .cta { 
+            display: inline-flex; 
+            align-items: center; 
+            gap: 0.5rem; 
+            background: var(--accent); 
+            color: var(--dark-surface); 
+            padding: 1rem 2.2rem; 
+            border-radius: 50px; 
+            font-weight: 700; 
+            font-size: 1.15rem; 
+            text-transform: uppercase;
+            box-shadow: 0 4px 15px rgba(0, 180, 219, 0.4);
+            transition: background 0.3s, transform 0.2s;
+        }
+        .cta:hover { background: #00b4d8; text-decoration: none; transform: translateY(-2px); }
+        
+        /* --- REVIEWS --- */
+        .reviews { background: var(--border); padding: 3rem 0; }
+        .review-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; text-align: center; color: var(--text); }
+        .review-item { padding: 1.5rem; background: var(--surface); border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); }
+        .stars { color: #ffc300; font-size: 1.5rem; margin-bottom: 0.5rem; }
+        .review-item p { margin: 0.5rem 0; font-style: italic; font-size: 1.05rem; }
+        .review-item .small { font-style: normal; font-weight: 500; color: var(--primary); }
+
+        /* --- EXCURSIONS --- */
+        .grid { display: grid; gap: 2rem; }
+        .grid-3 { grid-template-columns: repeat(3, 1fr); }
+        .trip-card { position: relative; overflow: hidden; color: var(--dark-text); background-size: cover; background-position: center; min-height: 300px; display: flex; align-items: flex-end; padding: 1.5rem; border-radius: 12px; }
+        .trip-card:before { content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: linear-gradient(180deg, rgba(0,0,0,0.05) 0%, rgba(0,30,80,0.8) 100%); z-index: 1; }
+        .trip-card-content { z-index: 2; width: 100%; }
+        .trip-card h3 { font-size: 1.7rem; margin: 0 0 0.2rem; font-family: 'Cormorant Garamond', serif; }
+        .tag { position: absolute; top: 1rem; right: 1rem; background: #ff9f1c; color: #fff; padding: 0.4rem 1.2rem; font-weight: 700; font-size: 0.9rem; z-index: 3; border-radius: 50px; }
+        .card-footer { display: flex; align-items: center; gap: 0.5rem; font-size: 0.95rem; margin-top: 0.5rem; }
+        .card-footer svg { width: 18px; height: 18px; fill: var(--accent); }
+
+        /* --- FORM & MAP --- */
+        .form-section { background: var(--bg); padding: 5rem 0 6rem; }
+        form { 
+            display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem; 
+            max-width: 850px; margin: 0 auto; padding: 3rem; 
+            background: var(--surface); border: 2px solid var(--primary); 
+            border-radius: 20px; 
+        }
+        input, select, textarea { 
+            font: inherit; padding: 0.9rem 1.2rem; border: 1px solid var(--border); 
+            border-radius: 8px; background: #f8fcfd; width: 100%; box-sizing: border-box; 
+            color: var(--text); 
+        }
+        input:focus, select:focus, textarea:focus { outline: 3px solid var(--accent); border-color: var(--accent); }
+        .form-actions button { background: var(--primary); color: #fff; }
+        .form-actions button:hover { background: var(--primary-dark); }
+
+        .map-section { background: var(--surface); }
+        .map { border: 0; width: 100%; height: 500px; border-radius: 16px; }
+
+        /* --- FOOTER --- */
+        footer { margin-top: 0; background: var(--dark-surface); color: #e0f2f1; }
+        .footer-grid { display: grid; grid-template-columns: 1.5fr 1fr 1fr; gap: 2rem; padding: 4rem 0; }
+        footer h3 { color: var(--accent); margin-top: 0; font-family: 'Roboto', sans-serif; }
+        footer a { color: var(--accent); }
+        footer .small { color: #b3e5fc; }
+
+        /* --- MEDIA QUERIES --- */
+        @media (max-width: 900px) {
+            .review-grid, .grid-3 { grid-template-columns: 1fr; }
+            .hero h1 { font-size: 3rem; }
+            .nav .menu { display: none; }
+            .footer-grid, form { grid-template-columns: 1fr; }
+            .map { height: 350px; }
+        }
+    </style>
+</head>
+<body>
+    <header class="topbar">
+        <div class="container nav" role="navigation" aria-label="Main Navigation">
+            <div class="brand" aria-label="Sea Excursions Propriano">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 2L2 22H22L12 2Z" fill="#00b4d8"/><path d="M12 2L17 12H7L12 2Z" fill="#fff"/></svg>
+                <span>Echo of the Waves</span>
+            </div>
+            <nav class="menu" aria-label="Quick Links">
+                <a href="#excursions">Escapes</a>
+                <a href="#galerie">Gallery</a>
+                <a href="#reservation">Book Now</a>
+                <a href="mailto:contact@excursions-propriano.com" class="cta" style="background:var(--primary); color:#fff; padding:0.5rem 1rem; border-radius:8px; font-size:1rem; box-shadow:none;">Contact</a>
+            </nav>
+            <div class="lang-switcher">
+                <a href="index.html" title="Version française">FR</a>
+                | <a href="index-en.html" class="active" aria-current="page">EN</a>
+                | <a href="index-it.html" title="Versione italiana">IT</a>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero" id="accueil">
+        <div class="container">
+            <h1>Excursions from Propriano to Scandola and Bonifacio</h1>
+            <p class="sub">Embark on an odyssey where azure blue meets red rock and pristine limestone.</p>
+            <a href="#reservation" class="cta" aria-label="Book your sea excursion">Book Your Crossing</a>
+        </div>
+    </section>
+
+    <section class="reviews">
+        <div class="container review-grid">
+            <div class="review-item">
+                <div class="stars">★★★★★</div>
+                <p>An incredible experience, the calanques are breathtaking.</p>
+                <p class="small">Sophie L.</p>
+            </div>
+            <div class="review-item">
+                <div class="stars">★★★★★</div>
+                <p>The best moment of our vacation! The team is great.</p>
+                <p class="small">Patrick A.</p>
+            </div>
+            <div class="review-item">
+                <div class="stars">★★★★★</div>
+                <p>Simply unforgettable. Impeccable service and magical scenery.</p>
+                <p class="small">Émilie M.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="excursions">
+        <div class="container">
+            <h2>The Call of the Sea: Poetic Itineraries</h2>
+            <p class="sublegend" style="text-align: center;">Every wave is a promise of discovery between sky and sea.</p>
+            <div class="grid grid-3">
+                
+                <div class="trip-card card" style="background-image: url('scandola-1.jpg');">
+                    <div class="tag">TOP SELLER | The Sanctuary</div>
+                    <div class="trip-card-content">
+                        <h3>The Wonders of Scandola & Piana</h3>
+                        <p class="small">
+                            Be charmed by the **Scandola Nature Reserve (UNESCO)**. Sail at the foot of the **volcanic red rock** cliffs of the Calanques de Piana, where time seems suspended. This is the refuge of **peregrine falcons** and rare endemic flora. Possible sightings of **dolphins** in these pure waters. (Full Day)
+                        </p>
+                        <div class="card-footer">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+                            <span>€95 / person (Drinks included)</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="trip-card card" style="background-image: url('bonifacio-1.jpg');">
+                    <div class="trip-card-content">
+                        <h3>The Limestone Dream of Bonifacio</h3>
+                        <p class="small">
+                            Head south, where the **white chalk cliffs** of Bonifacio rise up, sculpted by legends and the wind. We explore secret sea caves and the **Lavezzi Islands**, a true natural aquarium with turquoise waters. These coves are a marvel for observing **Posidonia seagrass** and escaping. (Full Day)
+                        </p>
+                        <div class="card-footer">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+                            <span>€85 / person (Stops possible)</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="trip-card card" style="background-image: url('dolphin-tour.jpg');">
+                    <div class="trip-card-content">
+                        <h3>Dolphin Dance & Sunset Tour</h3>
+                        <p class="small">
+                            A magical escape at the end of the day, when the sun sets the Gulf of Valinco ablaze. We actively search for **dolphins (Bottlenose Dolphins)**, the majestic hosts of our coasts. Experience this rare moment when marine life awakens at dusk. Ideal for families and nature lovers. (Duration 3h)
+                        </p>
+                        <div class="card-footer">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+                            <span>€70 / person (Guaranteed sighting)</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <p class="small" style="text-align: center; margin-top: 2.5rem; color: var(--text);">Max capacity: 12 people • Departure: Port of Propriano. Book early!</p>
+        </div>
+    </section>
+    
+    <section class="form-section" id="reservation">
+        <div class="container">
+            <h2>Book Your Sea Adventure</h2>
+            <p class="sublegend" style="text-align: center; margin-bottom: 3rem;">Fill out this availability request, and we will confirm within 24 hours.</p>
+            <form aria-label="Booking Form">
+                <div>
+                    <label for="name">Name</label>
+                    <input id="name" name="name" type="text" placeholder="Your Name" required />
+                </div>
+                <div>
+                    <label for="email">Email</label>
+                    <input id="email" name="email" type="email" placeholder="you@example.com" required />
+                </div>
+                <div>
+                    <label for="phone">Phone (Recommended)</label>
+                    <input id="phone" name="phone" type="tel" inputmode="tel" placeholder="+33 6 00 00 00 00" />
+                </div>
+                <div>
+                    <label for="trip">Excursion</label>
+                    <select id="trip" name="trip" required>
+                        <option value="">Choose…</option>
+                        <option>Scandola & Girolata — Full Day</option>
+                        <option>Bonifacio & Lavezzi Islands — Full Day</option>
+                        <option>Dolphin Dance & Sunset Tour</option>
+                        <option>Private Charter</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="date">Preferred Date</label>
+                    <input id="date" name="date" type="date" />
+                </div>
+                <div>
+                    <label for="people">Number of People</label>
+                    <input id="people" name="people" type="number" min="1" max="12" value="2" />
+                </div>
+                <div class="full">
+                    <label for="message">Message (optional)</label>
+                    <textarea id="message" name="message" rows="4" placeholder="Useful details (allergies, children, special times)…"></textarea>
+                </div>
+                <div class="form-actions full">
+                    <button type="submit" class="cta" style="font-family:'Roboto', sans-serif;" aria-label="Send booking request">Send Request</button>
+                </div>
+            </form>
+            <p class="form-note">Flexible cancellation policy (weather, 7 days prior). Secure payment after date confirmation.</p>
+        </div>
+    </section>
+
+    <section id="propriano-map" class="section map-section">
+        <div class="container">
+            <h2>Departure Point — Port of Propriano</h2>
+            <p class="sublegend" style="text-align: center; margin-bottom: 2rem;">Our pontoon is easily accessible at the Propriano marina. Find the route!</p>
+            <div class="card" style="padding: 0; overflow: hidden;">
+                <iframe class="map" title="Google Map — Port of Propriano" loading="lazy"
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d24982.97385357931!2d8.886!3d41.676!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x13d71c6b8b3e3f4f%3A0x4078821166a5d70!2sPropriano!5e0!3m2!1sfr!2sfr!4v1733300000" 
+                    aria-label="Map of Propriano Port">
+                </iframe>
+            </div>
+            <p class="small" style="text-align: center; margin-top: 1rem; color: var(--muted);">Precise coordinates will be sent to you with your booking confirmation.</p>
+        </div>
+    </section>
+
+    <section id="galerie" class="section">
+        <div class="container">
+            <h2>Photo Gallery</h2>
+            <p class="sublegend" style="text-align: center;">A few glimpses of our most beautiful excursions.</p>
+            <div class="grid grid-3">
+                <figure class="surface card">
+                    <img src="scandola-2.jpg" alt="Scandola at sunrise" />
+                    <figcaption class="small">Scandola at sunrise</figcaption>
+                </figure>
+                <figure class="surface card">
+                    <img src="bonifacio-2.jpg" alt="Cave entrance in Bonifacio" />
+                    <figcaption class="small">Cave entrance in Bonifacio</figcaption>
+                </figure>
+                <figure class="surface card">
+                    <img src="dolphin-photo.jpg" alt="Dolphins jumping at sunset" />
+                    <figcaption class="small">The magical dance of the dolphins </figcaption>
+                </figure>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container footer-grid">
+            <div>
+                <h3>Sea Excursions – Propriano</h3>
+                <p class="small">The escape starts here. Discover Scandola and Bonifacio in small groups, with passion and respect for the environment.</p>
+            </div>
+            <div>
+                <h3>Contact & Info</h3>
+                <p class="small">Tel: <a href="tel:+336355552610">06 35 55 52 610</a><br/>Email: <a href="mailto:contact@excursions-propriano.com">contact@excursions-propriano.com</a><br/>Port of Propriano</p>
+            </div>
+            <div>
+                <h3>Social Media</h3>
+                <p><a href="#">Instagram</a> • <a href="#">Facebook</a> • <a href="#">TikTok</a></p>
+            </div>
+        </div>
+        <div class="container" style="padding-bottom: 2rem;">
+            <p class="small" style="text-align: center; margin-top: 0;">© 2025 Echo of the Waves — All rights reserved</p>
+        </div>
+    </footer>
+</body>
+</html>

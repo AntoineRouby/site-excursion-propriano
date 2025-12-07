@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Aria Maris | Excursions en Mer Premium vers Scandola et Bonifacio - Propriano</title>
+    <meta name="description" content="Aria Maris vous emmène à bord de son semi-rigide Narwhal Orca 1200 pour les plus belles excursions en Corse : Scandola, Piana, et Bonifacio au départ de Propriano." />
+    
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Cormorant+Garamond:wght@600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* --- Styles du Site Aria Maris (CSS Intégré) --- */
+        :root {
+            --text: #023e8a; /* Bleu marine profond */
+            --muted: #6c757d;
+            --bg: #f9fbfd;
+            --primary: #0077b6; 
+            --primary-dark: #005f99;
+            --accent: #48cae4; 
+            --surface: #ffffff;
+            --border: #e0f2f1;
+            --dark-surface: #0a0e14;
+        }
+        
+        body {
+            font-family: 'Roboto', sans-serif;
+            color: var(--text);
+            background-color: var(--bg);
+            margin: 0;
+            line-height: 1.6;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Cormorant Garamond', serif;
+            font-weight: 700;
+            color: var(--primary-dark);
+        }
+        
+        /* Styles de base */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        /* HEADER & NAVIGATION */
+        header { background-color: var(--surface); box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05); padding: 1rem 0; }
+        nav { display: flex; justify-content: space-between; align-items: center; }
+        .logo { font-size: 1.8rem; font-weight: 700; color: var(--primary); text-transform: uppercase; }
+        nav a { color: var(--text); text-decoration: none; margin-left: 1.5rem; font-weight: 500; transition: color 0.3s; }
+        
+        .btn { display: inline-block; padding: 0.75rem 1.5rem; border-radius: 5px; text-decoration: none; font-weight: 700; transition: background-color 0.3s, transform 0.2s; margin-top: 1rem; border: none; cursor: pointer; }
+        .btn.primary { background-color: var(--primary); color: #ffffff; }
+
+        /* --- CAROUSEL STYLES (NOUVEAU) --- */
+        #hero { 
+            height: 70vh; 
+            position: relative; 
+            overflow: hidden; 
+            margin-bottom: 3rem;
+        }
+
+        .carousel-slides {
+            display: flex;
+            height: 100%;
+            transition: transform 0.5s ease-in-out;
+            width: 300%; /* Important: 100% * nombre de slides */
+        }
+
+        .slide {
+            width: 33.333%; /* 100% / nombre de slides */
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            display: flex;
+            align-items: center;
+            position: relative;
+        }
+
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: rgba(0, 0, 0, 0.35); /* Assombrissement léger */
+        }
+        
+        .slide-content {
+            position: relative;
+            z-index: 10;
+            color: #ffffff;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+            max-width: 700px;
+            padding: 0 1rem;
+            margin: 0 auto;
+        }
+        
+        .slide-content h1 {
+            font-size: 3rem;
+            color: #ffffff;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Indicateurs de navigation (points) */
+        .carousel-dots {
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 20;
+            display: flex;
+        }
+        
+        .dot {
+            height: 10px;
+            width: 10px;
+            margin: 0 5px;
+            background-color: #ffffff;
+            border-radius: 50%;
+            opacity: 0.5;
+            cursor: pointer;
+            transition: opacity 0.3s, background-color 0.3s;
+        }
+        
+        .dot.active {
+            opacity: 1;
+            background-color: var(--accent);
+        }
+        /* --- FIN CAROUSEL STYLES --- */
+
+        /* SECTION EXCURSIONS & CARDS */
+        #excursions { padding: 3rem 0; text-align: center; }
+        .excursions-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
+        .card { background-color: var(--surface); border: 1px solid var(--border); border-radius: 8px; overflow: hidden; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05); text-align: left; transition: transform 0.3s; }
+        .card img { width: 100%; height: 200px; object-fit: cover; }
+        .card-content { padding: 1.5rem; }
+        .price { font-size: 2rem; font-weight: 700; color: var(--accent); margin: 0.75rem 0; }
+        
+        /* SECTION VALORISATION DU BATEAU */
+        #narwhal { background-color: var(--dark-surface); color: #ffffff; padding: 4rem 0; }
+        #narwhal h2 { color: var(--accent); text-align: center; font-size: 2.5rem; margin-bottom: 3rem; }
+        #narwhal .content-grid { display: flex; gap: 2rem; align-items: center; }
+        .feature-list { list-style: none; padding: 0; }
+        .feature-list li { padding-left: 2rem; margin-bottom: 1rem; font-size: 1.1rem; color: #e0f2f1; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%2348CAE4'%3E%3Cpath d='M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: left center; background-size: 1.5rem; }
+
+        /* SECTION CGV */
+        #cgv { padding: 4rem 0; }
+        #cgv h2 { text-align: center; font-size: 2.5rem; margin-bottom: 2rem; }
+        #cgv h3 { font-size: 1.8rem; border-bottom: 2px solid var(--border); padding-bottom: 0.5rem; margin-top: 2rem; }
+        .alert-box { background-color: #ffebee; border-left: 5px solid #d32f2f; padding: 1rem; margin-top: 1rem; color: #d32f2f; }
+
+        /* FOOTER */
+        footer { background-color: var(--text); color: #ffffff; padding: 3rem 0 1rem; }
+        .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem; margin-bottom: 2rem; }
+        footer a { color: #c0c0c0; text-decoration: none; font-size: 0.9rem; }
+        
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            nav { flex-direction: column; }
+            #hero { height: 50vh; }
+            .slide-content h1 { font-size: 2rem; }
+            #narwhal .content-grid { flex-direction: column; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">Aria Maris</div>
+                <div class="nav-links">
+                    <a href="#excursions">Nos Excursions</a>
+                    <a href="#narwhal">Le Bateau</a>
+                    <a href="#galerie">Galerie</a>
+                    <a href="#contact">Contact</a>
+                    <a href="#" class="btn primary">Réserver</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <section id="hero">
+        <div class="carousel-slides">
+            
+            <div class="slide" style="background-image: url('bonifacio-2.jpg');">
+                <div class="overlay"></div>
+                <div class="slide-content container">
+                    <h1>L'Odyssée Corse. Rapide. Intime. Inoubliable.</h1>
+                    <p>Vivez la Corse du Sud comme jamais : explorez les falaises de Bonifacio en petit comité.</p>
+                    <a href="#excursions" class="btn primary">Découvrir les Itinéraires</a>
+                </div>
+            </div>
+
+            <div class="slide" style="background-image: url('coucher-de-soleil-golfe-de-valinco-corse.jpg');">
+                <div class="overlay"></div>
+                <div class="slide-content container">
+                    <h1>Magie du Valinco. Apéritif et Lumières Crépusculaires.</h1>
+                    <p>Terminez votre journée par une balade romantique et un apéritif corse de qualité offert.</p>
+                    <a href="#excursions" class="btn primary">Réserver le Sunset</a>
+                </div>
+            </div>
+
+            <div class="slide" style="background-image: url('scandola-2.jpg');">
+                <div class="overlay"></div>
+                <div class="slide-content container">
+                    <h1>Scandola, Piana. L'Essence de la Corse Sauvage.</h1>
+                    <p>Rejoignez la Réserve UNESCO rapidement et dans le plus grand confort grâce à notre Narwhal Orca 1200.</p>
+                    <a href="#excursions" class="btn primary">Voir le Grand Tour</a>
+                </div>
+            </div>
+            
+        </div>
+        <div class="carousel-dots">
+            <span class="dot active" onclick="currentSlide(0)"></span>
+            <span class="dot" onclick="currentSlide(1)"></span>
+            <span class="dot" onclick="currentSlide(2)"></span>
+        </div>
+    </section>
+    <section id="excursions" class="container">
+        <h2>Nos Odyssées</h2>
+        <p class="lead">Notre semi-rigide ultra-rapide nous permet de **longez toutes les côtes** pour découvrir les criques les plus secrètes, vous garantissant une immersion totale dans les joyaux de la Corse.</p>
+        
+        <div class="excursions-grid">
+            
+            <article class="card">
+                <img src="scandola-1.jpg" alt="Réserve de Scandola et Calanques de Piana" />
+                <div class="card-content">
+                    <h3>Grand Tour Scandola & Piana</h3>
+                    <p>Journée complète. Grâce à notre bateau rapide, nous **longeons chaque crique et presqu'île** jusqu'à la Réserve de Scandola (UNESCO). **Confort et rapidité** garantis. Éscale à Girolata.</p>
+                    <div class="price">
+                        <strong>160€</strong> / pers.
+                    </div>
+                    <p class="small">Départ de Propriano 9h00. Boissons rafraîchissantes incluses. (Environ 7h)</p>
+                    <a href="#" class="btn primary">Réserver cette aventure</a>
+                </div>
+            </article>
+
+            <article class="card">
+                <img src="bonifacio-1.jpg" alt="Falaises de Bonifacio et Îles Lavezzi" />
+                <div class="card-content">
+                    <h3>Grand Tour Bonifacio & Lavezzi</h3>
+                    <p>Journée complète. Départ matinal pour les falaises monumentales de Bonifacio. Nous **longeons l'intégralité du littoral** du Sud et entrons dans les grottes marines pour une expérience unique. Éscale libre à Bonifacio.</p>
+                    <div class="price">
+                        <strong>140€</strong> / pers.
+                    </div>
+                    <p class="small">Départ de Propriano 8h30. Éscale libre à Bonifacio. (Environ 8h)</p>
+                    <a href="#" class="btn primary">Réserver cette aventure</a>
+                </div>
+            </article>
+
+            <article class="card">
+                <img src="sunset-1.jpg" alt="Coucher de soleil sur le Golfe du Valinco" />
+                <div class="card-content">
+                    <h3>Magie du Coucher de Soleil</h3>
+                    <p>Soirée. Une balade courte et romantique dans le Golfe du Valinco. Idéal pour découvrir les **criques isolées** du Valinco au crépuscule. Arrêt baignade.</p>
+                    <div class="price">
+                        <strong>50€</strong> / pers.
+                    </div>
+                    <p class="small">Durée ~2h. Apéritif corse de qualité offert.</p>
+                    <a href="#" class="btn primary">Réserver la soirée</a>
+                </div>
+            </article>
+
+        </div>
+    </section>
+
+    <section id="narwhal">
+        <div class="container content-wrapper">
+            <div class="content-grid">
+                 <div class="text-content">
+                    <h2>Le Secret de nos Aventures : Le Narwhal Orca 1200</h2>
+                    <p>Notre investissement dans ce semi-rigide professionnel garantit une **vitesse de croisière élevée et un confort maximal**, essentiels pour couvrir les grandes distances sans fatigue et avec un accès privilégié aux zones côtières.</p>
+                    <ul class="feature-list">
+                        <li>**Performance & Rapidité :** Un moteur puissant pour atteindre rapidement les destinations éloignées.</li>
+                        <li>**Exploration Côtière :** Le format semi-rigide permet de **longez toutes les criques et côtes sauvages** inaccessibles aux gros bateaux.</li>
+                        <li>**Confort Premium :** Sièges suspendus et ergonomiques pour 12 passagers, minimisant l'impact des vagues.</li>
+                        <li>**Petit Groupe (Max 12 PAX) :** Pour une expérience intime et l'accès facile aux grottes.</li>
+                    </ul>
+                </div>
+                <div class="image-content">
+                    <img src="narwhal-orca-1.jpg" alt="Photo du semi-rigide Narwhal Orca 1200" />
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="galerie">
+        <div class="container">
+            <h2>Nos Meilleurs Souvenirs en Mer</h2>
+            <div class="galerie-grid">
+                <figure>
+                    <img src="grotte-1.jpg" alt="Entrée de grotte à Bonifacio" />
+                    <figcaption class="small">L'intérieur d'une grotte marine près de Bonifacio</figcaption>
+                </figure>
+                <figure>
+                    <img src="dolphin-1.jpg" alt="Dauphins sautant au crépuscule" />
+                    <figcaption class="small">La danse magique des dauphins au large de Propriano</figcaption>
+                </figure>
+                <figure>
+                     <img src="scandola-2.jpg" alt="Paysage de Scandola" />
+                    <figcaption class="small">Le rouge volcanique de la réserve de Scandola</figcaption>
+                </figure>
+                <figure>
+                    <img src="sunset-2.jpg" alt="Baignade au coucher du soleil" />
+                    <figcaption class="small">Baignade et apéritif lors de notre sortie coucher de soleil</figcaption>
+                </figure>
+            </div>
+        </div>
+    </section>
+
+    <section id="cgv" class="container">
+        <h2>Conditions Générales de Vente (CGV)</h2>
+        <p class="lead">Le client reconnaît avoir pris connaissance des présentes CGV avant d'effectuer sa réservation.</p>
+
+        <h3>Article 4. Réservation et Annulation</h3>
+
+        <h4>4.2. Annulation du Fait du Client</h4>
+        <p>Toute demande d'annulation doit être adressée par écrit (email). Le remboursement sera effectué selon l'échéancier suivant, calculé à partir de la date de départ prévue de l'excursion :</p>
+        <ul>
+            <li>**Annulation &ge; 7 jours** avant le départ : **Remboursement intégral** de toutes les sommes versées.</li>
+            <li>**Annulation entre 7 jours et 48 heures** avant le départ : **Rétention de l'acompte** ou de 30% du montant total.</li>
+            <li>**Annulation &lt; 48 heures** avant le départ : **Aucun remboursement** n'est possible.</li>
+        </ul>
+
+        <h4>4.3. Annulation du Fait d'Aria Maris (Météo ou Sécurité)</h4>
+        <p>Aria Maris est le seul juge des conditions météorologiques. La sécurité et le confort sont prioritaires.</p>
+        <div class="alert-box">
+            <strong>Décision d'Annulation :</strong> L'annulation peut être décidée par le capitaine jusqu'à l'heure de départ si les conditions météorologiques ne permettent pas d'assurer l'excursion dans des conditions optimales de sécurité ou de confort.
+        </div>
+        <p>En cas d'annulation du fait d'Aria Maris pour raisons météo ou de sécurité, le client se verra proposer, au choix :</p>
+        <ul>
+            <li>Un report de la prestation à une date ultérieure disponible.</li>
+            <li>Un **remboursement intégral** de toutes les sommes versées.</li>
+        </ul>
+    </section>
+
+    <footer id="contact">
+        <div class="container footer-grid">
+            <div>
+                <h3>Aria Maris – Excursions en Mer</h3>
+                <p class="small">L'évasion commence ici. Découvrez Scandola et Bonifacio en petits groupes, à bord de notre Narwhal Orca 1200.</p>
+            </div>
+            <div>
+                <h3>Contact & Infos</h3>
+                <p class="small">Tél: <a href="tel:+336355552610">06 35 55 52 610</a><br/>Email: <a href="mailto:contact@ariamariscorsica.com">contact@ariamariscorsica.com</a><br/>Port de Propriano</p>
+            </div>
+            <div>
+                <h3>Légal & Réservation</h3>
+                <p class="small"><a href="#cgv">Conditions Générales de Vente</a><br/><a href="#">Mentions Légales</a> (À compléter)<br/><a href="#">Plan du site</a></p>
+            </div>
+        </div>
+        <div class="container" style="padding-bottom: 2rem;">
+            <p class="small" style="text-align: center; margin-top: 0;">© 2025 Aria Maris. Tous droits réservés. </p>
+        </div>
+    </footer>
+
+    <script>
+        let currentSlideIndex = 0;
+        const slides = document.querySelector('.carousel-slides');
+        const dots = document.querySelectorAll('.dot');
+        const totalSlides = 3;
+
+        // Fonction pour afficher la diapositive
+        function showSlide(index) {
+            currentSlideIndex = index;
+            // Assurez-vous que l'index reste dans les limites
+            if (currentSlideIndex >= totalSlides) {
+                currentSlideIndex = 0;
+            } else if (currentSlideIndex < 0) {
+                currentSlideIndex = totalSlides - 1;
+            }
+
+            // Déplace le conteneur des slides
+            const offset = -currentSlideIndex * 100 / totalSlides;
+            slides.style.transform = `translateX(${offset}%)`;
+
+            // Met à jour les points de navigation
+            dots.forEach((dot, i) => {
+                dot.classList.remove('active');
+                if (i === currentSlideIndex) {
+                    dot.classList.add('active');
+                }
+            });
+        }
+
+        // Fonction pour passer à la diapositive suivante (utilisée par l'auto-slide)
+        function nextSlide() {
+            showSlide(currentSlideIndex + 1);
+        }
+
+        // Fonction pour la navigation manuelle (onClick sur les points)
+        function currentSlide(index) {
+            showSlide(index);
+            resetTimer(); // Réinitialise l'auto-slide après une interaction manuelle
+        }
+
+        // Auto-slide
+        let slideInterval = setInterval(nextSlide, 5000); // Change toutes les 5 secondes
+
+        // Réinitialise le timer après interaction manuelle
+        function resetTimer() {
+            clearInterval(slideInterval);
+            slideInterval = setInterval(nextSlide, 5000);
+        }
+
+        // Initialisation de la première diapositive
+        document.addEventListener('DOMContentLoaded', () => {
+            showSlide(0);
+        });
+    </script>
+
+</body>
+</html>
