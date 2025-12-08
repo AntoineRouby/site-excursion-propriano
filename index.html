@@ -8,7 +8,8 @@
     
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&family=Cormorant+Garamond:wght@600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
+    <link rel="icon" type="image/png" href="logo/logo-sans-lettre-detoure.png">
+
     <style>
         /* --- Styles du Site Aria Maris (CSS Intégré) --- */
         :root {
@@ -726,7 +727,31 @@
             .logo {
                 font-size: 1.5rem;
             }
+            
         }
+        /* Par exemple en dessous d’une règle @media existante */
+        @media (max-width: 768px) {
+            .mobile-menu-btn {
+                position: relative;
+                right: -10px; /* décale vers la droite */
+            }
+        }
+        /* Ligne “Aria Maris” */
+            .logo-text {
+                font-size: 1.4rem;
+                font-weight: 600;
+                line-height: 1.1;
+            }
+
+            /* “Propriano” en dessous */
+            .logo-sub {
+                display: block;
+                font-size: 0.85rem;
+                font-style: italic;
+                opacity: 0.85;
+                margin-top: -2px;
+            }
+        
     </style>
 </head>
 <body>
@@ -734,10 +759,15 @@
     <header>
         <div class="nav-container">
             <!-- Logo à gauche -->
-            <div class="logo">
-                <i class="fas fa-anchor logo-icon"></i>
-                Aria Maris
-            </div>
+            <a class="logo">
+                <img src="logo/logo-sans-lettre-detoure.png" alt="Logo" style="height: 60px; margin-right: 8px;">
+            
+                <span class="logo-text">
+                    Aria Maris
+                    <span class="logo-sub">Propriano</span>
+                </span>
+            </a>
+            
             
             <!-- Bouton menu mobile -->
             <button class="mobile-menu-btn" id="mobileMenuBtn">
@@ -904,6 +934,9 @@
             </div>
         </div>
     </section>
+
+
+	
 
     <section id="cgv" class="container">
         <h2 class="fade-in">Conditions Générales de Vente (CGV)</h2>
